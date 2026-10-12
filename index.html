@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Portfolio de Stanislas YAO, élève ingénieur en cybersécurité, développement et Big Data & IA.">
+<title>Stanislas YAO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#f5f6f8; --surface:#ffffff; --fg:#141a26; --muted:#5a6375; --line:#dde1e8;
+  --accent:#2747d6; --accent-soft:#e7ebfc; --ok:#1d7a4f; --ok-soft:#e1f2e9; --warn:#9a5b00; --warn-soft:#fbefd9;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root{
+  --bg:#0f131b; --surface:#161b26; --fg:#e8ecf3; --muted:#9aa3b5; --line:#262d3b;
+  --accent:#8ea4ff; --accent-soft:#1d2546; --ok:#5fd09a; --ok-soft:#14301f; --warn:#f0b65c; --warn-soft:#33260f; color-scheme:dark}}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:16px/1.6 var(--body);margin:0}
+.wrap{max-width:860px;margin:0 auto;padding:56px 20px 72px;display:flex;flex-direction:column;gap:64px}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15}
+.label{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+header{display:flex;flex-direction:column;gap:20px}
+.status{display:inline-flex;align-items:center;gap:10px;font:13px/1 var(--mono);color:var(--muted)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px var(--ok-soft)}
+h1{font-size:clamp(40px,8vw,68px);font-weight:700;letter-spacing:-.02em}
+.role{font-size:clamp(18px,2.6vw,22px);max-width:34ch;margin:0}
+.role b{color:var(--accent);font-weight:600}
+.bio{color:var(--muted);max-width:62ch;margin:0}
+.links{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--fg);text-decoration:none;font-weight:500;font-size:15px}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.btn:hover{border-color:var(--accent)}
+section{display:flex;flex-direction:column;gap:24px}
+section > h2{font-size:28px}
+.head{display:flex;flex-direction:column;gap:8px}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.skill{border-top:2px solid var(--fg);padding-top:14px;display:flex;flex-direction:column;gap:10px}
+.skill h3{font-size:18px}
+.skill p{margin:0;color:var(--muted);font-size:15px}
+.projects{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.project{display:grid;grid-template-columns:1fr auto;gap:8px 24px;padding:24px 0;border-bottom:1px solid var(--line)}
+.project > div{min-width:0}
+.project h3{font-size:22px}
+.project p{margin:8px 0 0;color:var(--muted);max-width:60ch}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.tag{font:12px/1 var(--mono);padding:6px 8px;border-radius:4px;background:var(--accent-soft);color:var(--accent)}
+.pill{align-self:start;font:500 12px/1 var(--mono);padding:7px 10px;border-radius:999px;white-space:nowrap}
+.pill.live{background:var(--ok-soft);color:var(--ok)}
+.pill.stage{background:var(--accent-soft);color:var(--accent)}
+.pill.wip{background:var(--warn-soft);color:var(--warn)}
+.project a.more{display:inline-block;margin-top:12px;font-weight:500}
+.timeline{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.timeline li{display:grid;grid-template-columns:120px 1fr;gap:20px;padding:0 0 28px}
+.timeline li > div{min-width:0;border-left:2px solid var(--line);padding-left:20px;position:relative}
+.timeline li > div::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.timeline .when{font:500 13px/1.6 var(--mono);color:var(--muted)}
+.timeline h3{font-size:18px}
+.timeline p{margin:6px 0 0;color:var(--muted)}
+.contact{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:28px;display:flex;flex-direction:column;gap:14px}
+.contact h2{font-size:26px}
+.contact p{margin:0;color:var(--muted);max-width:56ch}
+footer{font:12px/1.5 var(--mono);color:var(--muted)}
+@media (max-width:560px){
+  .project{grid-template-columns:1fr}
+  .pill{justify-self:start;grid-row:1}
+  .timeline li{grid-template-columns:1fr;gap:4px}
+  .timeline .when{padding-left:22px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="status"><span class="dot"></span>Disponible pour stage / premier emploi</span>
+    <h1>Stanislas YAO</h1>
+    <p class="role">Élève ingénieur en <b>cybersécurité</b>, avec une double compétence en développement et en Big Data &amp; IA.</p>
+    <p class="bio">Je conçois des solutions qui relient la sécurité, les réseaux et la donnée : un site web de plus de 20 pages en production, une application mobile réalisée en équipe, et NetPulse AI, une plateforme de supervision réseau assistée par l'intelligence artificielle.</p>
+    <div class="links">
+      <a class="btn primary" href="#projets">Voir mes projets</a>
+      <a class="btn" href="https://aseesim.com" target="_blank" rel="noopener">aseesim.com ↗</a>
+      <a class="btn" href="https://github.com/StanislasYao" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </header>
+
+  <section>
+    <div class="head"><span class="label">Compétences</span><h2>Trois domaines, un profil</h2></div>
+    <div class="skills">
+      <div class="skill"><h3>Cybersécurité</h3><p>Sécurité des systèmes et des réseaux, analyse des risques, bonnes pratiques de sécurisation des applications.</p></div>
+      <div class="skill"><h3>Développement</h3><p>Conception et mise en ligne de sites web complets, participation au développement d'une application mobile.</p></div>
+      <div class="skill"><h3>Big Data &amp; IA</h3><p>Traitement de données réseau et intégration de l'IA dans une plateforme de supervision.</p></div>
+    </div>
+  </section>
+
+  <section id="projets">
+    <div class="head"><span class="label">Projets</span><h2>Réalisations</h2></div>
+    <div class="projects">
+      <article class="project">
+        <div>
+          <h3>NetPulse AI</h3>
+          <p>Plateforme de supervision réseau qui s'appuie sur l'intelligence artificielle pour suivre l'état du réseau et aider à repérer les anomalies. Projet réalisé pendant mon stage de 4e année.</p>
+          <div class="tags"><span class="tag">Supervision réseau</span><span class="tag">IA</span><span class="tag">Big Data</span></div>
+        </div>
+        <span class="pill stage">Stage 4e année</span>
+      </article>
+      <article class="project">
+        <div>
+          <h3>Site web aseesim.com</h3>
+          <p>Site de plus de 20 pages conçu, développé et hébergé en production, de la structure des pages jusqu'à la mise en ligne.</p>
+          <div class="tags"><span class="tag">Développement web</span><span class="tag">Hébergement</span><span class="tag">20+ pages</span></div>
+          <a class="more" href="https://aseesim.com" target="_blank" rel="noopener">Visiter le site ↗</a>
+        </div>
+        <span class="pill live">En ligne</span>
+      </article>
+      <article class="project">
+        <div>
+          <h3>Application mobile</h3>
+          <p>Participation à la conception et au développement d'une application mobile au sein d'une équipe, pendant mon stage de 3e année.</p>
+          <div class="tags"><span class="tag">Mobile</span><span class="tag">Travail en équipe</span></div>
+        </div>
+        <span class="pill stage">Stage 3e année</span>
+      </article>
+      <article class="project">
+        <div>
+          <h3>Projet cybersécurité</h3>
+          <p>Un projet dédié à la sécurité est en cours de finalisation et sera publié ici prochainement.</p>
+          <div class="tags"><span class="tag">Cybersécurité</span></div>
+        </div>
+        <span class="pill wip">Bientôt</span>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="head"><span class="label">Parcours</span><h2>Expériences en entreprise</h2></div>
+    <ol class="timeline">
+      <li><span class="when">Stage · 4e année</span><div><h3>Stage Big Data &amp; Intelligence Artificielle</h3><p>Conception de NetPulse AI, une plateforme de supervision réseau intégrant l'IA.</p></div></li>
+      <li><span class="when">Stage · 3e année</span><div><h3>Stage en développement</h3><p>Contribution à la réalisation d'une application mobile.</p></div></li>
+    </ol>
+  </section>
+
+  <section class="contact">
+    <h2>Travaillons ensemble</h2>
+    <p>Je recherche des opportunités en cybersécurité, en développement ou en data. Retrouvez mon code sur GitHub et mes réalisations en ligne.</p>
+    <div class="links">
+      <a class="btn primary" href="https://github.com/StanislasYao" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn" href="https://aseesim.com" target="_blank" rel="noopener">aseesim.com ↗</a>
+    </div>
+  </section>
+
+  <footer>© 2026 Stanislas YAO · Agadir, Maroc</footer>
+</div>
+</body>
+</html>
